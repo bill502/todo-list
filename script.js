@@ -27,14 +27,17 @@ document.getElementById('add-todo').addEventListener('click', function() {
     newTodo.classList.add('task', 'draggable');
     newTodo.setAttribute('draggable', true); // Make the task draggable
 
-    // Create a lighter version of the selected color for the background
-    const lighterColor = lightenColor(selectedColor, 0.5); // Lighten by 50%
+    // Create different shades of the color for the task
+    const lighterColor = lightenColor(selectedColor, 0.7); // Lighten by 70%
+    const darkerColor = lightenColor(selectedColor, -0.3); // Darken by 30%
     newTodo.style.borderColor = selectedColor; // Set the border color
     newTodo.style.backgroundColor = lighterColor; // Set the lighter background color
+    newTodo.style.color = darkerColor; // Set the darker text color
 
     // Create the circle element
     const circle = document.createElement('div');
     circle.classList.add('circle');
+    circle.style.borderColor = darkerColor; // Set the border color of the circle
 
     // Append the circle to the new task
     newTodo.appendChild(circle);
@@ -42,12 +45,18 @@ document.getElementById('add-todo').addEventListener('click', function() {
     // Create a span for the todo text and append it
     const todoTextSpan = document.createElement('span');
     todoTextSpan.textContent = todoText;
+    todoTextSpan.style.color = darkerColor; // Set the darker text color
     newTodo.appendChild(todoTextSpan);
 
     // Add event listener to toggle the completed state
     circle.addEventListener('click', function() {
         circle.classList.toggle('completed');
         todoTextSpan.classList.toggle('completed-text');
+        if (circle.classList.contains('completed')) {
+            circle.style.backgroundColor = darkerColor; // Fill color when completed
+        } else {
+            circle.style.backgroundColor = ''; // Reset fill color when not completed
+        }
     });
 
     // Create and style the delete button as an "X"

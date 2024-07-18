@@ -1,7 +1,7 @@
 /* General body styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,14 +13,16 @@ body {
 #todo-container {
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 350px;
 }
 
 #todo-container h1 {
     margin: 0 0 20px;
     text-align: center;
+    font-size: 24px;
+    color: #333;
 }
 
 /* Input and button styling */
@@ -28,6 +30,9 @@ body {
     width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 #add-todo {
@@ -38,6 +43,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 #add-todo:hover {
@@ -65,25 +71,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px; /* Adjust padding for better appearance */
+    padding: 10px;
     margin-bottom: 10px;
-    border-radius: 5px; /* Rounded corners for the task box */
+    border-radius: 5px;
     border: 2px solid; /* Border color will be set dynamically */
-    background-color: #f4f4f4; /* Default background color */
+    background-color: #f9f9f9; /* Default background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .circle {
     flex-shrink: 0; /* Prevent the circle from shrinking */
     width: 15px;
     height: 15px;
-    border: 2px solid black;
+    border: 2px solid;
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;
-}
-
-.circle.completed {
-    background-color: rgb(51, 51, 51); /* filled circle */
 }
 
 span {
@@ -100,6 +104,7 @@ span {
     font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
+    opacity: 0.5;
 }
 
 .delete-button:hover {
@@ -130,7 +135,7 @@ span {
 .completed-text {
     text-decoration: line-through;
     text-decoration-color: white;
-    color: black;
+    color: inherit;
 }
 
 /* Prevent text selection during dragging */
