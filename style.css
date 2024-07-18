@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -8,6 +9,7 @@ body {
     margin: 0;
 }
 
+/* Container styling */
 #todo-container {
     background-color: #fff;
     padding: 20px;
@@ -21,6 +23,7 @@ body {
     text-align: center;
 }
 
+/* Input and button styling */
 #todo-input {
     width: calc(100% - 22px);
     padding: 10px;
@@ -41,6 +44,7 @@ body {
     background-color: #4cae4c;
 }
 
+/* List styling */
 #todo-list {
     list-style: none;
     padding: 0;
@@ -52,48 +56,22 @@ body {
     padding: 10px;
     border-radius: 3px;
     display: flex;
-    justify-content: space-between;
-}
-
-#todo-list li button {
-    background-color: #d9534f;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-#todo-list li button:hover {
-    background-color: #c9302c;
-}
-
-.completed {
-    text-decoration: line-through;
-    color: gray;
-}
-
-.completed-text {
-    position: relative;
-    color: black; /* Ensure text remains black */
-}
-
-.completed-text::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: white;
-    top: 50%;
-    transform: translateY(-50%);
+    align-items: center;
 }
 
 .task {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    border-radius: 3px;
 }
 
+
 .circle {
+    flex-shrink: 0; /* Prevent the circle from shrinking */
     width: 15px;
     height: 15px;
     border: 2px solid black;
@@ -103,7 +81,14 @@ body {
 }
 
 .circle.completed {
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(26, 26, 26); /* filled circle */
+}
+
+span {
+    flex-grow: 1; /* Allow the text to grow and take up available space */
+    overflow-wrap: break-word; /* Allow text to wrap within the container */
+    position: relative; /* Required for strikethrough pseudo-element */
+    display: inline-block; /* Ensure the span has proper dimensions */
 }
 
 .delete-button {
@@ -119,6 +104,7 @@ body {
     color: red;
 }
 
+/* Color options styling */
 #color-options {
     display: flex;
     justify-content: center;
@@ -138,4 +124,9 @@ body {
     border: 2px solid black;
 }
 
-
+/* Completed task styling */
+.completed-text {
+    text-decoration: line-through;
+    text-decoration-color: white;
+    color: black;
+}

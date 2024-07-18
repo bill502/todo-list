@@ -55,7 +55,6 @@ document.getElementById('add-todo').addEventListener('click', function() {
         todoList.removeChild(newTodo);
     });
     
-    
     newTodo.appendChild(deleteButton);
     todoList.appendChild(newTodo);
     
