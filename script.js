@@ -123,6 +123,11 @@ function handleDrop(e) {
         dropElem.querySelector('.circle').addEventListener('click', function() {
             dropElem.querySelector('.circle').classList.toggle('completed');
             dropElem.querySelector('span').classList.toggle('completed-text');
+            if (dropElem.querySelector('.circle').classList.contains('completed')) {
+                dropElem.querySelector('.circle').style.backgroundColor = dropElem.querySelector('.circle').style.borderColor; // Fill color when completed
+            } else {
+                dropElem.querySelector('.circle').style.backgroundColor = ''; // Reset fill color when not completed
+            }
         });
 
         dropElem.querySelector('.delete-button').addEventListener('click', function() {
