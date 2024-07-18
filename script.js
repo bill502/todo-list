@@ -1,4 +1,4 @@
-let selectedColor = 'gray'; // Default color
+let selectedColor = '#FFDDC1'; // Default color matches the first color button
 
 const colorButtons = document.querySelectorAll('.color-btn');
 
