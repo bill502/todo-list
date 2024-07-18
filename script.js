@@ -1,3 +1,18 @@
+let selectedColor = 'gray'; // Default color
+
+const colorButtons = document.querySelectorAll('.color-btn');
+
+colorButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove 'selected' class from all buttons
+        colorButtons.forEach(btn => btn.classList.remove('selected'));
+        // Add 'selected' class to the clicked button
+        button.classList.add('selected');
+        // Set the selected color
+        selectedColor = button.getAttribute('data-color');
+    });
+});
+
 document.getElementById('add-todo').addEventListener('click', function() {
     const todoInput = document.getElementById('todo-input');
     const todoText = todoInput.value;
@@ -10,6 +25,7 @@ document.getElementById('add-todo').addEventListener('click', function() {
     const todoList = document.getElementById('todo-list');
     const newTodo = document.createElement('li');
     newTodo.classList.add('task');
+    newTodo.style.backgroundColor = selectedColor;
 
     // Create the circle element
     const circle = document.createElement('div');
