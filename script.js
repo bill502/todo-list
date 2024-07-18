@@ -11,6 +11,10 @@ document.getElementById('add-todo').addEventListener('click', function() {
     const newTodo = document.createElement('li');
     newTodo.textContent = todoText;
 
+    newTodo.addEventListener('click', function() {
+        newTodo.classList.toggle('completed');
+    });
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', function() {
