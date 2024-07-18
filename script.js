@@ -105,6 +105,16 @@ function handleDrop(e) {
         this.insertAdjacentHTML('beforebegin', dropHTML);
         let dropElem = this.previousSibling;
         addDragAndDropHandlers(dropElem);
+
+        // Reattach event listeners to the newly dropped element
+        dropElem.querySelector('.circle').addEventListener('click', function() {
+            dropElem.querySelector('.circle').classList.toggle('completed');
+            dropElem.querySelector('span').classList.toggle('completed-text');
+        });
+
+        dropElem.querySelector('.delete-button').addEventListener('click', function() {
+            dropElem.parentNode.removeChild(dropElem);
+        });
     }
 
     this.classList.remove('over');
