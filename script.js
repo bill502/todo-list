@@ -25,8 +25,12 @@ document.getElementById('add-todo').addEventListener('click', function() {
     const todoList = document.getElementById('todo-list');
     const newTodo = document.createElement('li');
     newTodo.classList.add('task', 'draggable');
-    newTodo.style.backgroundColor = selectedColor; // Set the background color
     newTodo.setAttribute('draggable', true); // Make the task draggable
+
+    // Create a lighter version of the selected color for the background
+    const lighterColor = lightenColor(selectedColor, 0.5); // Lighten by 50%
+    newTodo.style.borderColor = selectedColor; // Set the border color
+    newTodo.style.backgroundColor = lighterColor; // Set the lighter background color
 
     // Create the circle element
     const circle = document.createElement('div');
@@ -124,4 +128,15 @@ function handleDrop(e) {
 function handleDragEnd(e) {
     this.classList.remove('over');
     this.classList.remove('dragElem');
+}
+
+//color lighten function using HSL
+function lightenColor(color, percent) {
+    const f = parseInt(color.slice(1), 16),
+          t = percent < 0 ? 0 : 255,
+          p = percent < 0 ? percent * -1 : percent,
+          R = f >> 16,
+          G = (f >> 8) & 0x00FF,
+          B = f & 0x0000FF;
+    return `#${(0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1).toUpperCase()}`;
 }

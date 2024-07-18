@@ -65,12 +65,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px;
+    padding: 10px; /* Adjust padding for better appearance */
     margin-bottom: 10px;
-    background-color: #eee;
-    border-radius: 3px;
+    border-radius: 5px; /* Rounded corners for the task box */
+    border: 2px solid; /* Border color will be set dynamically */
+    background-color: #f4f4f4; /* Default background color */
 }
-
 
 .circle {
     flex-shrink: 0; /* Prevent the circle from shrinking */
@@ -131,4 +131,17 @@ span {
     text-decoration: line-through;
     text-decoration-color: white;
     color: black;
+}
+
+/* Prevent text selection during dragging */
+.draggable {
+    user-select: none;
+}
+
+.dragElem {
+    opacity: 0.4; /* Add some transparency when dragging */
+}
+
+.over {
+    border: 2px dashed #000; /* Add a visual cue for the drop target */
 }
