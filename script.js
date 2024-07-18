@@ -9,7 +9,23 @@ document.getElementById('add-todo').addEventListener('click', function() {
 
     const todoList = document.getElementById('todo-list');
     const newTodo = document.createElement('li');
-    newTodo.textContent = todoText;
+    newTodo.classList.add('task');
+
+    // Create the circle element
+    const circle = document.createElement('div');
+    circle.classList.add('circle');
+
+    // Add event listener to toggle the completed state
+    circle.addEventListener('click', function() {
+        circle.classList.toggle('completed');
+    });
+
+    // Append the circle to the new task
+    newTodo.appendChild(circle);
+
+    // Create a text node for the todo text and append it
+    const todoTextNode = document.createTextNode(todoText);
+    newTodo.appendChild(todoTextNode);
 
     newTodo.addEventListener('click', function() {
         newTodo.classList.toggle('completed');
@@ -20,9 +36,9 @@ document.getElementById('add-todo').addEventListener('click', function() {
     deleteButton.addEventListener('click', function() {
         todoList.removeChild(newTodo);
     });
-
+    
     newTodo.appendChild(deleteButton);
     todoList.appendChild(newTodo);
-
-    todoInput.value = '';
+    
+    todoInput.value = '';    
 });
