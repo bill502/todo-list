@@ -15,27 +15,30 @@ document.getElementById('add-todo').addEventListener('click', function() {
     const circle = document.createElement('div');
     circle.classList.add('circle');
 
-    // Add event listener to toggle the completed state
-    circle.addEventListener('click', function() {
-        circle.classList.toggle('completed');
-    });
-
     // Append the circle to the new task
     newTodo.appendChild(circle);
 
     // Create a text node for the todo text and append it
-    const todoTextNode = document.createTextNode(todoText);
-    newTodo.appendChild(todoTextNode);
-
-    newTodo.addEventListener('click', function() {
-        newTodo.classList.toggle('completed');
+    const todoTextSpan = document.createElement('span');
+    todoTextSpan.textContent = todoText;
+    newTodo.appendChild(todoTextSpan);
+    
+    //event listener to toggle the completed state on the text span
+    circle.addEventListener('click', function() {
+        circle.classList.toggle('completed');
+        todoTextSpan.classList.toggle('completed-text');
     });
 
+    // Create and style the delete button as an "X"
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
+    deleteButton.textContent = 'X';
+    deleteButton.classList.add('delete-button');
+    
+    //event listener to delete the task on click
     deleteButton.addEventListener('click', function() {
         todoList.removeChild(newTodo);
     });
+    
     
     newTodo.appendChild(deleteButton);
     todoList.appendChild(newTodo);

@@ -72,6 +72,22 @@ body {
     color: gray;
 }
 
+.completed-text {
+    position: relative;
+    color: black; /* Ensure text remains black */
+}
+
+.completed-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .task {
     display: flex;
     align-items: center;
@@ -87,7 +103,20 @@ body {
 }
 
 .circle.completed {
-    background-color: black;
+    background-color: rgb(71, 71, 71);
+}
+
+.delete-button {
+    background-color: transparent;
+    color: rgb(255, 88, 88);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    color: red;
 }
 
 
