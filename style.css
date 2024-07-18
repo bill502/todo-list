@@ -57,6 +57,8 @@ body {
     border-radius: 3px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    cursor: move; /* Show a move cursor when hovering over a task */
 }
 
 .task {
@@ -81,14 +83,14 @@ body {
 }
 
 .circle.completed {
-    background-color: rgb(26, 26, 26); /* filled circle */
+    background-color: rgb(51, 51, 51); /* filled circle */
 }
 
 span {
     flex-grow: 1; /* Allow the text to grow and take up available space */
     overflow-wrap: break-word; /* Allow text to wrap within the container */
     position: relative; /* Required for strikethrough pseudo-element */
-    display: inline-block; /* Ensure the span has proper dimensions */
+    display: block; /* Ensure the span has proper dimensions */
 }
 
 .delete-button {
